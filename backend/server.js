@@ -21,11 +21,14 @@ let applications, whiteList, knowledgeBase;
 
 async function connectDB() {
   try {
+    console.log('尝试连接 MongoDB...');
+    console.log('URI:', MONGODB_URI.replace(/:[^:@]+@/, ':****@'));
     const client = new MongoClient(MONGODB_URI, { 
-      serverSelectionTimeoutMS: 10000,
-      connectTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 15000,
+      connectTimeoutMS: 15000,
     });
     await client.connect();
+    console.log('MongoDB 连接成功！');
     db = client.db(DB_NAME);
     
     // 初始化集合
