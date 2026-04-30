@@ -83,23 +83,24 @@ const OA_PAGES_URL = 'https://award-system.pages.woa.com';
 
 // CORS 配置
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    'https://award-system.pages.woa.com',
-    'https://award-level1.pages.woa.com',
-    'https://award-level2.pages.woa.com',
-    'https://award-level3.pages.woa.com',
-    'https://pages.woa.com',
-    'https://level1-site-402ca6lyd-jcmeng2002s-projects.vercel.app',
-    'https://level2-site-7o0pj1iyx-jcmeng2002s-projects.vercel.app',
-    'https://level3-site-3o6n957ht-jcmeng2002s-projects.vercel.app',
-    'http://localhost:3000',
-    'http://localhost:5173',
-  ];
-  const origin = req.headers.origin;
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigins.includes(origin) ? origin : '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token, X-Requested-With, Accept');
-  if (req.method === 'OPTIONS') return res.status(200).end();
+  const origin = req.headers.origin || '';
+  // 允许所有 Vercel 和 OA Pages 子域名
+  if (
+    origin.includes('vercel.app') ||
+    origin.includes('pages.woa.com') ||
+    origin.includes('localhost')
+  ) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token, X-Requested-With, Accept');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token, X-Requested-With, Accept');
+    if (req.method === 'OPTIONS') return res.status(200).end();
+  }
   next();
 });
 app.use(express.json());
