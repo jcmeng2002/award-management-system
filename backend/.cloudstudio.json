@@ -1,0 +1,10 @@
+{
+  "name": "award-system-backend",
+  "version": "1.0.0",
+  "description": "奖项管理系统后端服务",
+  "framework": "nodejs",
+  "entry": "server.js",
+  "port": 8080,
+  "buildCommand": "npm install",
+  "startCommand": "npm start"
+}
