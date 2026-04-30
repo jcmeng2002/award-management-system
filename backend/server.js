@@ -59,6 +59,8 @@ async function connectDB() {
     console.log('MongoDB 连接成功');
   } catch (error) {
     console.error('MongoDB 连接失败:', error.message);
+    console.error('错误码:', error.code);
+    console.error('错误名称:', error.name);
     console.log('将使用内存存储（数据不会持久化）');
   }
 }
