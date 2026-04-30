@@ -15,6 +15,10 @@ const PORT = process.env.PORT || 8080;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://1679312066_db_user:mjc1104502@cluster0.ryurg9b.mongodb.net/?appName=Cluster0&retryWrites=true&w=majority';
 const DB_NAME = process.env.DB_NAME || 'award_system';
 
+console.log('环境变量检查:');
+console.log('MONGODB_URI 已设置:', !!process.env.MONGODB_URI);
+console.log('MONGODB_URI 前50字符:', (process.env.MONGODB_URI || '').substring(0, 50) + '...');
+
 // MongoDB 客户端
 let db;
 let applications, whiteList, knowledgeBase;
