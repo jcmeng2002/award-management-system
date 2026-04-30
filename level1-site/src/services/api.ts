@@ -5,7 +5,7 @@
 
 import { KnowledgeItem, AwardApplication } from '../types'
 
-const API_BASE = 'https://award-backend.pages.woa.com'
+const API_BASE = 'https://backend-iyhycb7ep-jcmeng2002s-projects.vercel.app'
 const ADMIN_TOKEN = 'award-system-admin-secret-key-2024'
 
 interface ApiResponse<T> {
