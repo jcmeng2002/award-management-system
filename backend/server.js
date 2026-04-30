@@ -122,6 +122,20 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', service: 'award-system-backend', database: db ? 'connected' : 'disconnected', time: new Date().toISOString() });
 });
 
+// ==================== MongoDB 测试 ====================
+app.get('/test-mongo', async (req, res) => {
+  try {
+    const { MongoClient } = require('mongodb');
+    const client = new MongoClient(MONGODB_URI, { serverSelectionTimeoutMS: 10000, connectTimeoutMS: 10000 });
+    await client.connect();
+    const dbs = await client.db().admin().listDatabases();
+    await client.close();
+    res.json({ success: true, databases: dbs.databases.map(d => d.name) });
+  } catch (error) {
+    res.json({ success: false, error: error.message, code: error.code, name: error.name });
+  }
+});
+
 // ==================== 获取当前用户身份 ====================
 app.get('/api/current-user', async (req, res) => {
   try {
