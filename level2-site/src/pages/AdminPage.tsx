@@ -4,7 +4,7 @@ import { useAuth } from '../hooks/useAuth'
 import StatusBadge from '../components/StatusBadge'
 import { FileCheck, Check, X, User, Award, Clock, RefreshCw, ChevronDown, ChevronUp, Search, Filter } from 'lucide-react'
 
-const API_BASE = 'https://backend-q1g5ha63e-jcmeng2002s-projects.vercel.app'
+const API_BASE = 'https://backend-pxbs7yxak-jcmeng2002s-projects.vercel.app'
 
 const AdminPage = () => {
   const { user } = useAuth()
