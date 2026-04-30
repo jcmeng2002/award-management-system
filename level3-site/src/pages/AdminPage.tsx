@@ -4,7 +4,7 @@ import { useAuth } from '../hooks/useAuth'
 import StatusBadge from '../components/StatusBadge'
 import { Shield, BookOpen, FileCheck, Check, X, Plus, User, Award, Clock, CheckCircle, RefreshCw, ChevronDown, ChevronUp, Search, Filter, Star } from 'lucide-react'
 
-const API_BASE = 'https://backend-pxbs7yxak-jcmeng2002s-projects.vercel.app'
+const API_BASE = 'https://backend-ioxuf84pz-jcmeng2002s-projects.vercel.app'
 const ADMIN_TOKEN = 'award-system-admin-secret-key-2024'
 
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {

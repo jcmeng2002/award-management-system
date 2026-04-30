@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import StatusBadge from '../components/StatusBadge'
 import { Clock, Edit, Trash2, Send, CheckCircle, XCircle, Building, User, Award, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react'
 
-const API_BASE = 'https://backend-pxbs7yxak-jcmeng2002s-projects.vercel.app'
+const API_BASE = 'https://backend-ioxuf84pz-jcmeng2002s-projects.vercel.app'
 
 const HistoryPage = () => {
   const [myApps, setMyApps] = useState<AwardApplication[]>([])

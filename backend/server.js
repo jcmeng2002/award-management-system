@@ -89,9 +89,9 @@ app.use((req, res, next) => {
     'https://award-level2.pages.woa.com',
     'https://award-level3.pages.woa.com',
     'https://pages.woa.com',
-    'https://level1-site-asry9d7op-jcmeng2002s-projects.vercel.app',
-    'https://level2-site-lzgu9efur-jcmeng2002s-projects.vercel.app',
-    'https://level3-site-roc59xm1x-jcmeng2002s-projects.vercel.app',
+    'https://level1-site-402ca6lyd-jcmeng2002s-projects.vercel.app',
+    'https://level2-site-7o0pj1iyx-jcmeng2002s-projects.vercel.app',
+    'https://level3-site-3o6n957ht-jcmeng2002s-projects.vercel.app',
     'http://localhost:3000',
     'http://localhost:5173',
   ];
