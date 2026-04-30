@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // MongoDB 连接配置
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://1679312066_db_user:mjc1355550879@cluster0.ryurg9b.mongodb.net/?appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://1679312066_db_user:mjc1355550879@cluster0.ryurg9b.mongodb.net/?appName=Cluster0&directConnection=true';
 const DB_NAME = process.env.DB_NAME || 'award_system';
 
 // MongoDB 客户端
@@ -21,7 +21,10 @@ let applications, whiteList, knowledgeBase;
 
 async function connectDB() {
   try {
-    const client = new MongoClient(MONGODB_URI, { serverSelectionTimeoutMS: 5000 });
+    const client = new MongoClient(MONGODB_URI, { 
+      serverSelectionTimeoutMS: 10000,
+      connectTimeoutMS: 10000,
+    });
     await client.connect();
     db = client.db(DB_NAME);
     
